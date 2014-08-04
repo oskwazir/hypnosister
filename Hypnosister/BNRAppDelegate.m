@@ -24,10 +24,10 @@
     firstView.backgroundColor = [UIColor redColor];
     [self.window addSubview:firstView];
     
-    //We now create a second view which becomes a subview of UIWindow
+    //Now we add the second view as a subview of the first view, and the origin coordinates change
     BNRHypnosisView *secondView = [[BNRHypnosisView alloc] initWithFrame:secondFrame];
     secondView.backgroundColor = [UIColor blueColor];
-    [self.window addSubview:secondView];
+    [firstView addSubview:secondView];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
