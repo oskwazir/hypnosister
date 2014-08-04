@@ -18,16 +18,10 @@
     
     
     CGRect firstFrame = CGRectMake(160, 240, 100, 150);
-    CGRect secondFrame = CGRectMake(20, 30, 50, 50);
     
     BNRHypnosisView *firstView = [[BNRHypnosisView alloc] initWithFrame:firstFrame];
     firstView.backgroundColor = [UIColor redColor];
     [self.window addSubview:firstView];
-    
-    //Now we add the second view as a subview of the first view, and the origin coordinates change
-    BNRHypnosisView *secondView = [[BNRHypnosisView alloc] initWithFrame:secondFrame];
-    secondView.backgroundColor = [UIColor blueColor];
-    [firstView addSubview:secondView];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
