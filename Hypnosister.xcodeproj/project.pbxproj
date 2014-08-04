@@ -19,6 +19,7 @@
 		B7255A7B198F32B100C0C113 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7255A63198F32B100C0C113 /* UIKit.framework */; };
 		B7255A83198F32B100C0C113 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7255A81198F32B100C0C113 /* InfoPlist.strings */; };
 		B7255A85198F32B100C0C113 /* HypnosisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7255A84198F32B100C0C113 /* HypnosisterTests.m */; };
+		B7255A90198F343700C0C113 /* BNRHypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7255A8F198F343700C0C113 /* BNRHypnosisView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		B7255A80198F32B100C0C113 /* HypnosisterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HypnosisterTests-Info.plist"; sourceTree = "<group>"; };
 		B7255A82198F32B100C0C113 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B7255A84198F32B100C0C113 /* HypnosisterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HypnosisterTests.m; sourceTree = "<group>"; };
+		B7255A8E198F343700C0C113 /* BNRHypnosisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRHypnosisView.h; sourceTree = "<group>"; };
+		B7255A8F198F343700C0C113 /* BNRHypnosisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRHypnosisView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				B7255A6F198F32B100C0C113 /* BNRAppDelegate.m */,
 				B7255A71198F32B100C0C113 /* Images.xcassets */,
 				B7255A66198F32B100C0C113 /* Supporting Files */,
+				B7255A8E198F343700C0C113 /* BNRHypnosisView.h */,
+				B7255A8F198F343700C0C113 /* BNRHypnosisView.m */,
 			);
 			path = Hypnosister;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			files = (
 				B7255A6C198F32B100C0C113 /* main.m in Sources */,
 				B7255A70198F32B100C0C113 /* BNRAppDelegate.m in Sources */,
+				B7255A90198F343700C0C113 /* BNRHypnosisView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
