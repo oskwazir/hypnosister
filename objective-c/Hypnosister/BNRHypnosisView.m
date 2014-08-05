@@ -14,7 +14,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        // All BNRHypnosisViews will start with a clear background color
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -31,18 +32,29 @@
     center.x = bounds.origin.x + bounds.size.width / 2.0;
     center.y = bounds.origin.y + bounds.size.height / 2.0;
     
-    //set the radius to the smaller of the two dimenions allowing portrait/landscape views to be correct
-    float radius = MIN(bounds.size.width, bounds.size.height) / 2.0;
+    //the largest circle will circumscribe the view
+    float maxRadius = hypot(bounds.size.width, bounds.size.height) / 2;
     
     UIBezierPath *path = [[UIBezierPath alloc] init];
     
-    //Add an arc to the path at the center,with radius of radius,
-    //from 0 to 2*PI in radians (which makes a cirle)
-    [path addArcWithCenter:center
-                    radius:radius
-                startAngle:0
-                  endAngle:M_PI * 2
-                 clockwise:YES];
+
+    for(float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20){
+        
+        //Need to move where drawing starts so that the circles aren't joined together
+        [path moveToPoint:CGPointMake(center.x + currentRadius, center.y)];
+        
+        [path addArcWithCenter:center
+                        radius:currentRadius
+                    startAngle:0.0
+                      endAngle:M_PI * 2.0
+                     clockwise:YES];
+    }
+    
+    //Set line width to 10 points
+    path.lineWidth = 10;
+    
+    //Configure the drawing color to light gray
+    [[UIColor lightGrayColor] setStroke];
     
     //Now draw the line
     [path stroke];
