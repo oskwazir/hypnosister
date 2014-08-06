@@ -95,10 +95,11 @@
      followed by red, green, blue, and alpha values for the second color.
      */
     CGFloat components[8] = { 0.0, 1.0, 0.0, 1.0, 1.0,1.0,0.0,1.0};
+    CGPoint endPoint = CGPointMake(bounds.origin.x + (bounds.size.width / 2.0), bounds.origin.y + (bounds.size.height * 0.85) );
     
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     CGGradientRef gradient = CGGradientCreateWithColorComponents(colorspace, components, locations, 2);
-    CGContextDrawLinearGradient(currentContext, gradient, startPoint, secondPoint, 0);
+    CGContextDrawLinearGradient(currentContext, gradient, startPoint, endPoint, kCGGradientDrawsAfterEndLocation);
     
     //Need to release what we created since own them
     CGGradientRelease(gradient);
