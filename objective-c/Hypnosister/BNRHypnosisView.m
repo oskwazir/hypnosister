@@ -25,11 +25,13 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    
     CGRect bounds = self.bounds;
     CGRect hypnotoadBounds = CGRectMake(bounds.origin.x + bounds.size.width / 4.0,
                                         bounds.origin.y + bounds.size.height / 4.0,
                                         bounds.size.width / 1.58,
                                         bounds.size.height / 2.0);
+    
     UIImage *hypnotoad = [UIImage imageNamed:@"Hypnotoad.png"];
     
     //figure out the center of the bounds rectangle
@@ -63,6 +65,15 @@
     
     //Now draw the line
     [path stroke];
+    
+    //get the current graphics context
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    
+    //save the context before applying a shadow to it
+    CGContextSaveGState(currentContext);
+    
+    //set a shadow to the graphic context -- I have no clue how this will look
+    CGContextSetShadow(currentContext, CGSizeMake(4, 8), 2.5);
     
     //Add hypnotoad
     [hypnotoad drawInRect:hypnotoadBounds];
