@@ -26,6 +26,11 @@
 - (void)drawRect:(CGRect)rect
 {
     CGRect bounds = self.bounds;
+    CGRect hypnotoadBounds = CGRectMake(bounds.origin.x + bounds.size.width / 4.0,
+                                        bounds.origin.y + bounds.size.height / 4.0,
+                                        bounds.size.width / 2.0,
+                                        bounds.size.height / 2.0);
+    UIImage *hypnotoad = [UIImage imageNamed:@"Hypnotoad.png"];
     
     //figure out the center of the bounds rectangle
     CGPoint center;
@@ -58,6 +63,9 @@
     
     //Now draw the line
     [path stroke];
+    
+    //Add hypnotoad
+    [hypnotoad drawInRect:hypnotoadBounds];
 }
 
 
