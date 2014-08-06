@@ -28,7 +28,7 @@
     CGRect bounds = self.bounds;
     CGRect hypnotoadBounds = CGRectMake(bounds.origin.x + bounds.size.width / 4.0,
                                         bounds.origin.y + bounds.size.height / 4.0,
-                                        bounds.size.width / 2.0,
+                                        bounds.size.width / 1.58,
                                         bounds.size.height / 2.0);
     UIImage *hypnotoad = [UIImage imageNamed:@"Hypnotoad.png"];
     
