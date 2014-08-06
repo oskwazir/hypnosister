@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B731CA6A1992889B0060F948 /* HypnosisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B731CA691992889B0060F948 /* HypnosisView.swift */; };
 		B75A49951990B44700868058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A49941990B44700868058 /* AppDelegate.swift */; };
-		B75A49971990B44700868058 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A49961990B44700868058 /* ViewController.swift */; };
-		B75A499A1990B44700868058 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75A49981990B44700868058 /* Main.storyboard */; };
 		B75A499C1990B44700868058 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75A499B1990B44700868058 /* Images.xcassets */; };
 		B75A49A81990B44800868058 /* HypnosisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A49A71990B44800868058 /* HypnosisterTests.swift */; };
 /* End PBXBuildFile section */
@@ -25,11 +24,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B731CA691992889B0060F948 /* HypnosisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HypnosisView.swift; sourceTree = "<group>"; };
 		B75A498F1990B44700868058 /* Hypnosister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hypnosister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75A49931990B44700868058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B75A49941990B44700868058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B75A49961990B44700868058 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B75A49991990B44700868058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B75A499B1990B44700868058 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B75A49A11990B44700868058 /* HypnosisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HypnosisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75A49A61990B44700868058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,8 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				B75A49941990B44700868058 /* AppDelegate.swift */,
-				B75A49961990B44700868058 /* ViewController.swift */,
-				B75A49981990B44700868058 /* Main.storyboard */,
+				B731CA691992889B0060F948 /* HypnosisView.swift */,
 				B75A499B1990B44700868058 /* Images.xcassets */,
 				B75A49921990B44700868058 /* Supporting Files */,
 			);
@@ -189,7 +186,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B75A499A1990B44700868058 /* Main.storyboard in Resources */,
 				B75A499C1990B44700868058 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B75A49971990B44700868058 /* ViewController.swift in Sources */,
+				B731CA6A1992889B0060F948 /* HypnosisView.swift in Sources */,
 				B75A49951990B44700868058 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,17 +226,6 @@
 			targetProxy = B75A49A21990B44700868058 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B75A49981990B44700868058 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B75A49991990B44700868058 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B75A49A91990B44800868058 /* Debug */ = {
@@ -395,6 +380,7 @@
 				B75A49AD1990B44800868058 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B75A49AE1990B44800868058 /* Build configuration list for PBXNativeTarget "HypnosisterTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +389,7 @@
 				B75A49B01990B44800868058 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

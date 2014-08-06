@@ -16,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         // Override point for customization after application launch.
+        
+        //not sure why window is an optional type. When could it not get initialized?
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
+        
+        let firstFrame:CGRect = CGRectMake(160, 240, 100, 150);
+        let firstView:HypnosisView = HypnosisView(frame: firstFrame);
+        firstView.backgroundColor = UIColor.redColor();
+        
+        self.window!.addSubview(firstView);
+        self.window!.backgroundColor = UIColor.whiteColor();
+        self.window!.makeKeyAndVisible();
+        
         return true
     }
 
