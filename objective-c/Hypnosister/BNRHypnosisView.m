@@ -75,33 +75,30 @@
     CGContextSaveGState(currentContext);
     
     //All the work in making a clipping path
-    CGPoint startPoint = CGPointMake(bounds.origin.x + bounds.size.width / 2.0, bounds.origin.y + bounds.size.height * 0.20);
-    CGPoint endPoint = CGPointMake(bounds.origin.x + bounds.size.width, bounds.origin.y + bounds.size.height * 0.85);
+    CGPoint startPoint = CGPointMake(bounds.origin.x + (bounds.size.width / 2.0), bounds.origin.y + (bounds.size.height * 0.15) );
+    CGPoint secondPoint = CGPointMake(bounds.origin.x + bounds.size.width - 20, bounds.origin.y + (bounds.size.height * 0.85) );
+    CGPoint thirdPoint = CGPointMake(bounds.origin.x + 20, bounds.origin.y + (bounds.size.height * 0.85) );
     
-    CGFloat angle = M_PI/4; // 45 degrees in radians
-    // v1 = vector from startPoint to endPoint:
-    CGPoint v1 = CGPointMake(endPoint.x - startPoint.x, endPoint.y - startPoint.y);
-    // v2 = v1 rotated by 60 degrees:
-    CGPoint v2 = CGPointMake(cosf(angle) * v1.x - sinf(angle) * v1.y,
-                             sinf(angle) * v1.x + cosf(angle) * v1.y);
-    // thirdPoint = startPoint + v2:
-    CGPoint thirdPoint = CGPointMake(startPoint.x + v2.x, startPoint.y + v2.y);
-    
-    [path moveToPoint:startPoint];
-    [path addLineToPoint:endPoint];
-    [path addLineToPoint:thirdPoint];
+    UIBezierPath *triangle = [UIBezierPath bezierPath];
+    [triangle moveToPoint:startPoint];
+    [triangle addLineToPoint:secondPoint];
+    [triangle addLineToPoint:thirdPoint];
     
     //now apply the clipping path
-    [path addClip];
+    [triangle addClip];
     
     //apply the gradient which is applied just within the clipping path
     CGFloat locations[2] = { 0.0, 1.0 };
-    CGFloat components[8] = { 1.0, 0.0, 0.0, 1.0, //some how this starts as red
-        1.0,1.0,0.0,1.0}; // and this ends as yellow?
+    
+    /*
+     red, green, blue, and alpha values for the first color,
+     followed by red, green, blue, and alpha values for the second color.
+     */
+    CGFloat components[8] = { 0.0, 1.0, 0.0, 1.0, 1.0,1.0,0.0,1.0};
     
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     CGGradientRef gradient = CGGradientCreateWithColorComponents(colorspace, components, locations, 2);
-    CGContextDrawLinearGradient(currentContext, gradient, startPoint, endPoint, 0);
+    CGContextDrawLinearGradient(currentContext, gradient, startPoint, secondPoint, 0);
     
     //Need to release what we created since own them
     CGGradientRelease(gradient);
