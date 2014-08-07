@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let firstView:HypnosisView = HypnosisView(frame: firstFrame);
         
-        firstView.backgroundColor = UIColor.redColor();
-        
         self.window!.addSubview(firstView);
         self.window!.backgroundColor = UIColor.whiteColor();
         self.window!.makeKeyAndVisible();

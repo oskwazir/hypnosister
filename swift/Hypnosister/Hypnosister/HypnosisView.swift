@@ -9,7 +9,20 @@
 import UIKit
 
 class HypnosisView: UIView {
-
+    
+    /*** 
+    ***  The required init(coder: NSCoder){} is added to work around the message below:
+    **   “Class HypnosisView does not implement its superclass's required members”
+    **   stackoverflow.com/questions/25126295/swift-class-does-not-implement-its-superclasss-required-members
+    ***/
+    required init(coder: NSCoder) {
+        fatalError("NSCoding not supported")
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame:frame);
+        self.backgroundColor = UIColor.clearColor();
+    }
     
 //     Only override drawRect: if you perform custom drawing.
 //     An empty implementation adversely affects performance during animation.
@@ -26,6 +39,8 @@ class HypnosisView: UIView {
         let startAngle = CGFloat(0.0);
         let endAngle = CGFloat(M_PI * 2.0);
         path.addArcWithCenter(center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true);
+        path.lineWidth = 10.0;
+        UIColor.lightGrayColor().setStroke();
         path.stroke();
     
     }
