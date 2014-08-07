@@ -21,10 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
         
         let firstFrame:CGRect = CGRectMake(160, 240, 100, 150);
+        let secondFrame:CGRect = CGRectMake(20, 30, 50, 50);
+        
         let firstView:HypnosisView = HypnosisView(frame: firstFrame);
+        let secondView:HypnosisView = HypnosisView(frame: secondFrame);
+        
         firstView.backgroundColor = UIColor.redColor();
+        secondView.backgroundColor = UIColor.blueColor();
         
         self.window!.addSubview(firstView);
+        self.window!.addSubview(secondView);
         self.window!.backgroundColor = UIColor.whiteColor();
         self.window!.makeKeyAndVisible();
         
