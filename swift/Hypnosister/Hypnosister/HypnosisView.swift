@@ -27,6 +27,11 @@ class HypnosisView: UIView {
     override func drawRect(rect: CGRect)
     {
         let bounds:CGRect = self.bounds;
+        let hypnoToadBounds:CGRect = CGRectMake(bounds.origin.x + bounds.size.width / 4.0,
+            bounds.origin.y + bounds.size.height / 4.0, bounds.size.width / 1.58, bounds.size.height / 2.0);
+    
+        let hypnoToad:UIImage = UIImage(named: "hypnotoad.png");
+        
         let center:CGPoint = CGPoint(x: bounds.origin.x + bounds.size.width / 2.0,
             y: bounds.origin.y + bounds.size.height / 2.0);
         
@@ -49,6 +54,8 @@ class HypnosisView: UIView {
         path.lineWidth = 10.0;
         UIColor.lightGrayColor().setStroke();
         path.stroke();
+        
+        hypnoToad.drawInRect(hypnoToadBounds);
     
     }
 
