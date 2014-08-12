@@ -55,7 +55,19 @@ class HypnosisView: UIView {
         UIColor.lightGrayColor().setStroke();
         path.stroke();
         
+        //get the current graphics context
+        let currentContext:CGContextRef = UIGraphicsGetCurrentContext();
+        
+        //save the context before applying a clipping path to it
+        CGContextSaveGState(currentContext);
+        
+        //set a shadow to the context
+        CGContextSetShadow(currentContext, CGSizeMake(4, 6), 2.5);
+        
         hypnoToad.drawInRect(hypnoToadBounds);
+        
+        //restore the context so new drawings don't have a  shadow on them
+        CGContextRestoreGState(currentContext);
     
     }
 
