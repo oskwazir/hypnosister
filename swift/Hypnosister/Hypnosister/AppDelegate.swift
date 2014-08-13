@@ -21,18 +21,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
         
         //Create CGRects for frames
-        let screenRect:CGRect = self.window!.bounds;
+        var screenRect:CGRect = self.window!.bounds;
         var bigRect:CGRect = screenRect;
         bigRect.size.width  *= 2.0;
-        bigRect.size.height *= 2.0;
         
         //create a screen sized scroll view and add it to the window
         let scrollView:UIScrollView = UIScrollView(frame: screenRect);
+        scrollView.pagingEnabled = true;
         self.window!.addSubview(scrollView);
         
-        //create a super–sized hypnosis view and add it to the scroll view
-        let hypnosisView:HypnosisView = HypnosisView(frame: bigRect);
+        //create a screen–sized hypnosis view and add it to the scroll view
+        let hypnosisView:HypnosisView = HypnosisView(frame: screenRect);
         scrollView.addSubview(hypnosisView);
+        
+        //add a second screen–sized hypnosis view off screen to the right
+        screenRect.origin.x += screenRect.size.width;
+        let anotherView:HypnosisView = HypnosisView(frame: screenRect);
+        scrollView.addSubview(anotherView);
         
         //tell the scroll view how big its content area is
         scrollView.contentSize = bigRect.size;
