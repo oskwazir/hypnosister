@@ -20,11 +20,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //not sure why window is an optional type. When could it not get initialized?
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
         
-        let firstFrame:CGRect = self.window!.bounds;
+        //Create CGRects for frames
+        let screenRect:CGRect = self.window!.bounds;
+        var bigRect:CGRect = screenRect;
+        bigRect.size.width  *= 2.0;
+        bigRect.size.height *= 2.0;
         
-        let firstView:HypnosisView = HypnosisView(frame: firstFrame);
+        //create a screen sized scroll view and add it to the window
+        let scrollView:UIScrollView = UIScrollView(frame: screenRect);
+        self.window!.addSubview(scrollView);
         
-        self.window!.addSubview(firstView);
+        //create a super–sized hypnosis view and add it to the scroll view
+        let hypnosisView:HypnosisView = HypnosisView(frame: bigRect);
+        scrollView.addSubview(hypnosisView);
+        
+        //tell the scroll view how big its content area is
+        scrollView.contentSize = bigRect.size;
+        
+        
         self.window!.backgroundColor = UIColor.whiteColor();
         self.window!.makeKeyAndVisible();
         
