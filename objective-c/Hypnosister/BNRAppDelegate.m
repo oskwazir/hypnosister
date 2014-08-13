@@ -23,6 +23,7 @@
     
     //create a screen sized scroll view and add it to the window
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    scrollView.pagingEnabled = YES;
     
     [self.window addSubview:scrollView];
     
