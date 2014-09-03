@@ -9,10 +9,15 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UIScrollViewDelegate {
                             
     var window: UIWindow?
-
+    
+    var hypnosisView:HypnosisView?
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
+        return self.hypnosisView;
+    }
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         // Override point for customization after application launch.
@@ -22,25 +27,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Create CGRects for frames
         var screenRect:CGRect = self.window!.bounds;
-        var bigRect:CGRect = screenRect;
-        bigRect.size.width  *= 2.0;
         
         //create a screen sized scroll view and add it to the window
         let scrollView:UIScrollView = UIScrollView(frame: screenRect);
-        scrollView.pagingEnabled = true;
+        scrollView.pagingEnabled = false;
+        scrollView.maximumZoomScale = 6.0;
+        scrollView.delegate = self;
+        scrollView.contentSize = screenRect.size;
+        
         self.window!.addSubview(scrollView);
         
         //create a screen–sized hypnosis view and add it to the scroll view
-        let hypnosisView:HypnosisView = HypnosisView(frame: screenRect);
-        scrollView.addSubview(hypnosisView);
-        
-        //add a second screen–sized hypnosis view off screen to the right
-        screenRect.origin.x += screenRect.size.width;
-        let anotherView:HypnosisView = HypnosisView(frame: screenRect);
-        scrollView.addSubview(anotherView);
-        
-        //tell the scroll view how big its content area is
-        scrollView.contentSize = bigRect.size;
+        self.hypnosisView = HypnosisView(frame: screenRect);
+        scrollView.addSubview(hypnosisView!);
         
         
         self.window!.backgroundColor = UIColor.whiteColor();
